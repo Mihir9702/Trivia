@@ -20,7 +20,8 @@ const userSchema = new Schema({
 
   handlename: {
     type: String,
-    default: `user-${randomUserNumber}`
+    required: true,
+    unique: true
   }
 
 },

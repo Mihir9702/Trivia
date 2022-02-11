@@ -4,7 +4,7 @@ module.exports = async (req, res, next) => {
 
     const { username, password, handlename } = req.body;
 
-    const specialChars = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    const specialChars = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
     const alreadyCreatedUser = await User.findOne({ username: username })
 
