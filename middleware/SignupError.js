@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
     }
 
     // Check if User is creating account with empty fields
-    else if (!username || !password) {
+    else if (!username || !password || !handlename) {
         const errorMessage = 'You must fill out the appropriate fields'
         return res.render('auth/signup', { errorMessage })
     }

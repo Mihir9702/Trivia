@@ -39,11 +39,11 @@ router.post('/signup', signupError, (req, res) => {
 router.get('/login', (req, res) => res.render('auth/login'))
 
 router.post('/login', loginError, async (req, res) => {
-  const { username } = req.body.username;
+  const { username } = req.body;
 
   // Add Session to User
-  req.session.user = await User.find({ username: username })
-  res.redirect('/profile');
+  req.session.user = await User.findOne({ username: username })
+  res.redirect('/profile')
 })
 
 // Logout
@@ -55,7 +55,7 @@ router.get('/logout', (req, res) => {
 
 // 🔒 Protected Routes
 router.get('/profile', loggedIn, (req, res) => {
-  res.render('private/profile', req.session.user)
+  res.render('private/profile', req.user)
 })
 
 module.exports = router;
