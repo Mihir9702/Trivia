@@ -14,6 +14,7 @@ module.exports = async (req, res, next) => {
         return res.render('auth/signup', { errorMessage })
     }
 
+    // Check if password is > 8 characters
     else if (password.length < 8) {
         const errorMessage = 'Password must be at least 8 characters'
         return res.render('auth/signup', { errorMessage })
