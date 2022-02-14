@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "sass": "sass --watch ./public/sass/styles.sass ./public/stylesheets/style.css",
+    "watch": "concurrently \"npm run start\" \"npm run sass\""
   },
   "dependencies": {
     "axios": "^0.25.0",
@@ -17,9 +19,11 @@
     "hbs": "^4.2.0",
     "mongoose": "^6.2.1",
     "morgan": "^1.10.0",
+    "sass": "^1.49.7",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "nodemon": "^2.0.15"
   }
 }

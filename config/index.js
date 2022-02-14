@@ -32,6 +32,7 @@ const MongoStore = require("connect-mongo");
 // Connects the mongo uri to maintain the same naming structure
 const MONGO_URI = require("../utils/consts");
 
+
 // Middleware configuration
 module.exports = (app) => {
   // In development environment the app logs
@@ -53,6 +54,7 @@ module.exports = (app) => {
   app.use(
     favicon(path.join(__dirname, "..", "public", "images", "favicon.ico"))
   );
+
 
   // Middleware that adds a "req.session" information and later to check that you are who you say you are 😅
   app.use(

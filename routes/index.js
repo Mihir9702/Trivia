@@ -5,6 +5,9 @@ const { genSaltSync, hashSync } = require('bcryptjs');
 
 // Models
 const User = require('../models/User');
+const Question = require('../models/Question');
+const Trivia = require('../models/Trivia');
+
 
 // Api
 const axios = require('axios');
@@ -13,69 +16,54 @@ const axios = require('axios');
 const signupError = require('../middleware/SignupError');
 const loginError = require('../middleware/LoginError');
 const loggedIn = require('../middleware/LoggedIn');
+const decode = require('../utils/decode');
 
-function decode(string) {
-  return Buffer.from(string, 'base64').toString('utf-8')
-}
 /* GET home page */
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
 
-  axios
-    .get('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple&encode=base64')
-    .then(test => {
+  // Fetch Api
+  const getAxios = await axios.get('https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple&encode=base64');
 
-
-
-      /* 
-        Trivia
-          .create({
-            question1.category: objects[0][0]
-            question1.question: objects[0][1]
-            question1.choices.push(objects[0][2])
-            question1.answer: objects[0][3]
-
-            question2.category: objects[1][0]
-            question2.question: objects[1][1]
-            question2.choices.push(objects[1][2])
-            question2.answer: objects[0][3]
-
-            question3.category: objects[2][0]
-            question3.question: objects[2][1]
-            question3.choices.push(objects[2][2])
-            question3.answer: objects[0][3]
-          })
-      */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      const objects = test.data.results.map(obj => {
-        const incorrect = obj.incorrect_answers.map(answers => {
-          return decode(answers)
-        });
-        incorrect.push(decode(obj.correct_answer))
-        return [decode(obj.category), decode(obj.question), incorrect, decode(obj.correct_answer)]
-
+  try {
+    getAxios.data.results.map(obj => {
+      // Return incorrect answers
+      const choices = obj.incorrect_answers.map(incorrect => {
+        return decode(incorrect);
       });
 
-      console.log(objects[0])
+      const { category, question, correct_answer } = obj;
 
+      // Choices[] contains all incorrect answers and the correct answer
+      const answer = decode(correct_answer);
+      choices.push(answer);
 
-      res.render('index', { objects });
-    })
-    .catch(err => console.log(err))
+      // Create a single question in database
+      Question
+        .create({ category: decode(category), question: decode(question), choices: choices, answer: answer })
+        .then(() => { })
+        .catch(err => res.status(400).send(err));
+    });
+  } catch (err) { res.status(400).send(err) }
+
+  // Find Most Recent 10 Questions and get their ID's
+  const gettenQuestions = await Question.find().limit(10).sort({ 'createdAt': -1 });
+
+  try {
+    const questionID = gettenQuestions.map(question => {
+      return question._id;
+    });
+
+    const newTrivia = await Trivia.create({ questions: questionID });
+  } catch (err) { res.status(500).send(err) }
+
+  // Create a Trivia Test
+
+  // Render most recent Trivia created
+  const getTrivia = await Trivia.findOne().sort({ 'createdAt': -1 }).populate('questions');
+  try {
+    res.render('index', { getTrivia });
+  } catch (err) { res.status(500).send(err) }
+
 });
 
 
@@ -105,25 +93,21 @@ router.post('/signup', signupError, (req, res) => {
 router.get('/login', (req, res) => res.render('auth/login'));
 
 router.post('/login', loginError, async (req, res) => {
-  const { username } = req.body;
-
   // Add Session to User
-  req.session.user = await User.findOne({ username: username })
+  req.session.user = await User.findOne({ username: req.body.username })
   res.redirect('/profile')
 });
 
 // Logout
 router.get('/logout', (req, res) => {
+  // End Session of User
   req.session.destroy();
   res.redirect('/');
 });
-
 
 // 🔒 Protected Routes
 router.get('/profile', loggedIn, (req, res) => {
   res.render('private/profile', req.user)
 });
-
-
 
 module.exports = router;
