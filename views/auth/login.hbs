@@ -1,16 +1,118 @@
-<form action="/login" method="POST">
+<div class="page">
+   <div class="left">
+      <h5><a href="#">Forgot Password?</a> or <a href="/signup">Signup</a></h5>
+   </div>
 
-   <label> Username
-      <input type="text" name="username">
-   </label>
+   <div class="right">
+      <form action="/login" method="POST">
+         <input type="text" name="username" placeholder="Username">
+         <input type="password" name="password" placeholder="Password">
+         <button type="submit">Submit</button>
+      </form>
+   </div>
+</div>
 
-   <label> Password
-      <input type="password" name="password">
-   </label>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Quando", serif;
+}
 
-   <button type="submit">Submit</button>
+.page {
+  padding: 200px 600px;
+  position: absolute;
+  background: #e2e2e5;
+  border-radius: 20px;
+}
 
-</form>
+.left {
+  padding: 180px 200px;
+  position: absolute;
+  background: white;
+  top: 250px;
+  border-radius: 12px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.left h5 {
+  font-size: 12px;
+  position: absolute;
+  white-space: nowrap;
+  left: 100px;
+  bottom: 0;
+  color: #474a59;
+}
+.left h5 a {
+  text-decoration: none;
+  color: #006bff;
+  margin: 10px;
+  cursor: pointer;
+  transition: color 100ms ease-in;
+}
+.left h5 a:hover {
+  color: #8aa7b5;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #474a59;
+  color: #8aa7b5;
+  padding: 200px 150px 250px 150px;
+  position: relative;
+  left: 400px;
+  border-radius: 10px;
+}
+
+input {
+  margin: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #30323d;
+  color: #c2c2c5;
+  font-size: 18px;
+}
+input:focus {
+  outline: none;
+}
+
+#user {
+  position: absolute;
+  width: 200px;
+  margin-bottom: 100px;
+}
+
+#pass {
+  position: absolute;
+  margin-top: 200px;
+  width: 200px;
+}
+
+button {
+  position: absolute;
+  bottom: 50px;
+  font-family: "Quando", serif;
+  cursor: pointer;
+  border: none;
+  padding: 8px 80px;
+  border-radius: 3px;
+  color: #474a59;
+  background: #efefef;
+  z-index: 22;
+  transition: background 200ms ease;
+}
+button:hover {
+  background: #d6d6d6;
+}
+</style>
 
 {{#if errorMessage}}
    {{errorMessage}}
