@@ -3,6 +3,8 @@ const { Schema, model } = require('mongoose');
 const questionSchema = new Schema({
 
     category: { type: String },
+    
+    difficulty: { type: String },
 
     question: { type: String },
 

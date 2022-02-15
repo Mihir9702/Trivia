@@ -24,6 +24,9 @@ app.locals.title = `${capitalized(projectName)}`;
 const index = require("./routes/index");
 app.use("/", index);
 
+const trivia = require("./routes/trivia");
+app.use("/trivia", trivia);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

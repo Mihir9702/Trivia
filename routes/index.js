@@ -21,6 +21,17 @@ const bodyParser = require("body-parser");
 const async = require("hbs/lib/async");
 
 router.get('/', (req, res) => {
+
+Question
+    .find()
+    .limit(10)
+    .then(tenQuestions => {
+        const questionsID = [];
+        for (let question of tenQuestions) {
+            questionsID.push(question._id);
+        }
+        console.log(questionsID);
+    })
   res.render('index');
 })
 
@@ -115,66 +126,19 @@ router.get("/create-trivia", async (req, res) => {
 
 });
 
-// Trivia Page
-router.get('/trivia', async (req, res) => {
-  // Render most recent Trivia created
-  const getTrivia = await Trivia.findOne().sort({ 'createdAt': -1 }).populate('questions');
-  try {
-    res.render('trivia', { getTrivia, layout: false });
-  } catch (err) { res.status(504).send(err) }
-});
 
-router.post('/trivia', (req, res) => {
-  res.json(req.body);
+// router.get('/trivia', async (req, res) => {
+//   // Render most recent Trivia created
+//   const getTrivia = await Trivia.findOne().sort({ 'createdAt': -1 }).populate('questions');
+//   try {
+//     res.render('trivia', { getTrivia, layout: false });
+//   } catch (err) { res.status(504).send(err) }
+// });
 
-});
+// router.post('/trivia', (req, res) => {
+//   res.json(req.body);
 
-router.post('/trivia/submit', async (req, res) => {
-  let score = 0;
-  for await (const object of Object.entries(req.body)) {
-     const question = await Question.findById(object[0])
-        if (object[1] === question.answer) {
-          score++;
-        } 
-  }
+// });
 
-  const user = req.session.user;
-  const foundUser = await User.findByIdAndUpdate(user._id, {
-    
-  })
-});
-
-router.get('/trivia/questions', (req, res) => {
-  Trivia
-    .findOne()
-    .sort({ 'createdAt': -1 })
-    .populate('questions')
-    .then(foundTrivia => {
-      res.render('foundTrivia', foundTrivia.questions)
-    })
-    .catch(err => res.status(500).send(err))
-
-})
-
-router.get('/trivia/questions/:questionID', (req, res) => {
-  Question
-    .findById(req.params.questionID)
-    .then(foundQuestion => {
-      res.render('foundQuestion', foundQuestion)
-    })
-    .catch(err => res.status(500).send(err))
-});
-
-router.post('/trivia/questions/:questionID', (req, res) => {
-  Question
-    .findById(req.params.questionID)
-    .then(foundQuestion => {
-      const correct = foundQuestion.answer;
-      if (req.body.choices === correct) {
-        console.log('Correct');
-      } else { console.log('Incorrect')};
-    })
-  res.json(req.body);
-});
 
 module.exports = router;

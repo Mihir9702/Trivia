@@ -4,8 +4,6 @@ const triviaSchema = new Schema({
 
     questions: { type: [Types.ObjectId], ref: 'Question' },
 
-    score: { type: [{ owner: Types.ObjectId, score: Number }], ref: 'User' }
-
 }, { timestamps: true });
 
 

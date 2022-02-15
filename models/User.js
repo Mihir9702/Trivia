@@ -22,10 +22,15 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true
+  },
+
+  tests: {
+    type: [Object],
   }
 
 },
   { timestamps: true, });
+
 
 const User = model("User", userSchema);
 
