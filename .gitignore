@@ -9,7 +9,10 @@ npm-debug.log
 .env
 
 # SASS -> CSS map
-public/stylesheets/style.css.map
+style.css.map
+trivia.css.map
+login.css.map
+home.css.map
 
 # Notes
 models/testTrivia.js

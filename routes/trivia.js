@@ -6,15 +6,14 @@ const Question = require('../models/Question');
 const Trivia = require('../models/Trivia');
 
 // Difficulties [Easy, Medium, Hard]
-router.get('/', (req, res) => { res.render('difficulty') });
+router.get('/', (req, res) => { res.render('content/difficulty'); });
 
 // Easy
 router.get('/difficulty/easy?', async (req, res) => {
   const trivias = await Trivia.find({ difficulty: 'easy' })
 
   try {
-    console.log(trivias.length);
-    res.render('allTrivia', {trivias});
+    res.render('content/allTrivia', { trivias });
   } catch (err) {
     console.log(`Easy err: ${err}`);
   }
@@ -26,7 +25,7 @@ router.get('/difficulty/medium?', async (req, res) => {
   const trivias = await Trivia.find({ difficulty: 'medium' })
 
   try {
-    res.render('allTrivia', {trivias});
+    res.render('content/allTrivia', { trivias });
   } catch (err) {
     console.log(`Medium err: ${err}`);
   }
@@ -38,7 +37,7 @@ router.get('/difficulty/hard?', async (req, res) => {
   const trivias = await Trivia.find({ difficulty: 'hard' })
 
   try {
-    res.render('allTrivia', {trivias});
+    res.render('content/allTrivia', { trivias });
   } catch (err) {
     console.log(`Hard err: ${err}`);
   }
@@ -48,7 +47,7 @@ router.get('/difficulty/:difficulty/:id', async (req, res) => {
   const foundTrivia = await Trivia.findById(req.params.id).populate('questions')
 
   try {
-    res.render('foundTrivia', foundTrivia)
+    res.render('content/foundTrivia', foundTrivia)
   } catch (err) {
     console.log(`Found Trivia err: ${err}`)
   }
