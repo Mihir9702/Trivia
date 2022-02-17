@@ -1,0 +1,23 @@
+<form action="/profile/{{_id}}/edit" method="post">
+
+   <label> Username
+      <input type="text" name="username" value="{{username}}" required>
+   </label>
+
+   <label> Password
+      <input type="password" name="password">
+   </label>
+
+   <label> @
+      <input type="text" name="handlename" value="{{handlename}}">
+   </label>
+
+   <button type="submit">Submit</button>
+
+</form>
+
+<a href="/profile/{{_id}}/delete">Delete Account</a>
+
+{{#if errorMessage}}
+   <p>{{errorMessage}}</p>
+{{/if}}
