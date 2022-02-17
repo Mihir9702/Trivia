@@ -1,0 +1,97 @@
+$blue: #006bff
+$gray: #474a59
+$lg: #8aa7b5
+$plain: #e2e2e5
+$font: 'Quando', serif
+$bcol: #efefef
+
+@mixin center()
+    display: flex
+    justify-content: center
+    align-items: center
+
+.login-body
+    @include center()
+    margin: 0
+    padding: 0
+    height: 100vh
+    width: 100%
+    box-sizing: border-box
+
+.page
+    padding: 200px 600px
+    position: absolute
+    background: $plain
+    border-radius: 20px
+
+.left
+    padding: 180px 200px
+    position: absolute
+    background: white
+    top: 250px
+    border-radius: 12px
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+
+    h5
+        font-size: 12px
+        position: absolute
+        white-space: nowrap
+        left: 100px
+        bottom: 0
+        color: $gray
+
+        a
+            text-decoration: none
+            color: $blue
+            margin: 10px
+            cursor: pointer
+            transition: color 100ms ease-in
+            &:hover
+                color: $lg
+
+form
+    @include center()
+    flex-direction: column
+    background: $gray
+    color: $lg
+    padding: 200px 150px 250px 150px
+    position: relative
+    left: 400px
+    border-radius: 10px
+input
+    margin: 16px
+    background: transparent
+    border: none
+    border-bottom: 2px solid darken($gray, 10%)
+    color: #c2c2c5
+    font-size: 18px
+    &:focus
+        outline: none
+
+#user
+    position: absolute
+    width: 200px
+    margin-bottom: 100px
+
+#pass
+    position: absolute
+    margin-top: 200px
+    width: 200px
+
+button
+    position: absolute
+    bottom: 50px
+    font-family: $font
+    cursor: pointer
+    border: none
+    padding: 8px 80px
+    transform: scale(0.7)
+    border-radius: 3px
+    color: $gray
+    background: $bcol
+    z-index: 22
+    transition: background 200ms ease
+
+    &:hover
+        background: darken($bcol, 10%)

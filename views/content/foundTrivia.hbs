@@ -1,0 +1,40 @@
+
+<body class="single-trivia-body">
+    <div class="left-trivia-sidebar"></div>
+    <div class="left-trivia-sidebar2"></div>
+    <div class="test-container">
+        <div class="trivia-form-container">
+            <form action="/trivia/submit/{{_id}}" method="post">
+
+                {{#each questions}}
+
+                    <div class="question-container">
+                        <h2>{{category}}</h2>
+                        <h2 id="question">{{question}}</h2>
+                        <div class="choices-container">
+                            {{!-- Get Question ID --}}
+                            <label for="{{this._id}}">{{choices.[0]}}   
+                                <input type="radio" class="option" name="{{this._id}}" value="{{choices.[0]}}"></input>
+                            </label>
+
+                            <label for="{{this._id}}">{{choices.[1]}}
+                                <input type="radio" class="option" name="{{this._id}}" value="{{choices.[1]}}"></input>
+                            </label>
+
+                            <label for="{{this._id}}">{{choices.[2]}}
+                                <input type="radio" class="option" name="{{this._id}}" value="{{choices.[2]}}"></input>
+                            </label>
+
+                            <label for="{{this._id}}">{{choices.[3]}}
+                                <input type="radio" class="option" name="{{this._id}}" value="{{choices.[3]}}"></input>
+                            </label>
+                        </div>
+                    </div>
+                {{/each}}
+                <button type="submit" class="submit-trivia-button">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="right-trivia-sidebar"></div>
+    <div class="right-trivia-sidebar2"></div>
+</body>

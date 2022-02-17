@@ -1,0 +1,232 @@
+.difficulty-body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  background: #d9d6d6;
+}
+
+.difficulty-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+}
+.difficulty-container button {
+  margin: 100px;
+  font-family: "Mogra", cursive;
+  padding: 40px;
+  font-size: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 150ms ease;
+}
+
+.easy {
+  background: #2bc016;
+  transition: background 250ms ease;
+}
+.easy:hover {
+  background: #219211;
+}
+
+.medium {
+  background: #ffe900;
+  transition: background 250ms ease;
+}
+.medium:hover {
+  background: #ccba00;
+}
+
+.hard {
+  background: #e53d00;
+  transition: background 250ms ease;
+}
+.hard:hover {
+  background: #b22f00;
+}
+
+.trivia-body {
+  background: #2892d7;
+  overflow-x: hidden;
+}
+
+.trivia-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  margin-top: 100px;
+}
+.trivia-container a {
+  text-decoration: none;
+  color: #173753;
+  font-size: 28px;
+  font-family: "Mogra", cursive;
+  cursor: pointer;
+  background: #6daedb;
+  padding: 12px;
+  border: 2px solid black;
+  width: 100%;
+  text-align: center;
+}
+.trivia-container a:hover {
+  background: #96c5e5;
+}
+
+.single-trivia-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #1b4353;
+  overflow-x: hidden;
+}
+
+.test-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.left-trivia-sidebar {
+  background: #2892d7;
+  position: absolute;
+  width: 15%;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 3515px;
+  left: 0;
+  top: 0;
+}
+
+.left-trivia-sidebar2 {
+  background: #2892d7;
+  position: absolute;
+  width: 15%;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 3515px;
+  left: 0;
+  top: 100%;
+}
+
+.right-trivia-sidebar {
+  background: #2892d7;
+  position: absolute;
+  width: 15%;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 3515px;
+  right: 0;
+  top: 0;
+}
+
+.right-trivia-sidebar2 {
+  background: #2892d7;
+  position: absolute;
+  width: 15%;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 3515px;
+  right: 0;
+  top: 100%;
+}
+
+.test-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px;
+  height: 100%;
+  width: 80%;
+  color: white;
+  z-index: 32;
+}
+.test-container .submit-trivia-button {
+  position: relative;
+  bottom: 0;
+  color: black;
+  background: white;
+  transition: background 150ms ease-in;
+  border: none;
+  border-radius: 10px;
+  width: 80%;
+  height: 100px;
+  margin-top: 200px;
+  font-family: "Mogra", cursive;
+  font-size: 30px;
+}
+.test-container .submit-trivia-button:hover {
+  background: #69b3e3;
+  color: white;
+}
+.test-container h2 {
+  padding: 20px;
+  font-family: "Mogra", cursive;
+}
+.test-container #question {
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  font-family: "Bungee", cursive;
+}
+.test-container .question-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 2px solid white;
+  background: #173753;
+  margin-top: 3rem;
+  padding: 40px;
+  border-radius: 10px;
+  right: 50px;
+  width: 100%;
+}
+.test-container .choices-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  position: relative;
+}
+.test-container .choices-container label {
+  font-size: 1.35rem;
+  position: relative;
+  user-select: none;
+  z-index: 23;
+  font-family: "Mogra", cursive;
+}
+.test-container .choices-container input {
+  padding: 25px 25px;
+  z-index: 25;
+  background: #2892d7;
+  appearance: none;
+  border: 2px solid white;
+  transition: background 150ms ease-in;
+  border-radius: 50%;
+}
+.test-container .choices-container input:hover {
+  background: #006bff;
+}
+.test-container .choices-container input:checked {
+  background: #1b4353;
+}
+
+/*# sourceMappingURL=trivia.css.map */

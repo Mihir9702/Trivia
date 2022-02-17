@@ -1,0 +1,265 @@
+$lb: hsl(180%, 180%, 80%)
+
+@keyframes cta
+  0%
+    padding: 12px
+  100%
+    padding: 20px
+
+@mixin links()
+  text-decoration: none
+  color: black
+  background: transparent
+
+body 
+  min-height: 100vh
+  width: 100%
+  margin: 0
+  padding: 0
+  overflow-x: hidden
+
+
+button 
+  @include links()
+  padding: 8px
+  border-radius: 50%
+  cursor: pointer
+  font-size: 18px
+
+nav 
+  display: flex
+  padding: 2% 6%
+  justify-content: flex-end
+  align-items: center
+  position: relative
+  bottom: 100px
+  left: 100px
+
+.nav-links 
+  word-spacing: 10px
+  text-align: right
+
+.fa-solid
+  position: relative
+  top: 5px
+  font-size: 30px
+  @include links()
+  
+
+.fa-house
+  font-size: 28px
+  @include links()
+  
+header
+  padding: 100px
+  background: blue 
+  position: relative
+
+  h1
+    position: absolute
+    font-family: 'Mogra', cursive
+
+  img
+    position: absolute
+    transform: scale(0.5)
+    top: 0
+    left: -60px
+    z-index: 3
+
+section 
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  min-height: 400px
+  padding-top: 100px
+  background: #3c31dd
+
+.curve 
+  position: absolute
+  height: 250px
+  width: 100%
+  bottom: 0
+  text-align: center
+  &::before 
+    content: ''
+    display: block
+    position: absolute
+    border-radius: 100% 60% 
+    width: 60%
+    height: 100%
+    transform: translate(80%, 45%)
+    background-color: lightgreen
+    z-index: 1
+  &::after
+    content: ''
+    display: block
+    position: absolute
+    border-radius: 100% 50%
+    width: 60%
+    height: 100%
+    padding-bottom: 100px
+    background-color: blue
+    transform: translate(-20%, 40%) scale(1.2)
+    z-index: 3
+
+.cta-trivia
+  background: lightgreen
+  position: relative
+  top: 50px
+  width: 100%
+  z-index: 2
+  padding-bottom: 100px
+
+  .cta-container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    position: absolute
+    bottom: 200px
+
+  h1
+    position: absolute
+    bottom: 100px
+    white-space: nowrap
+    font-family: 'Mogra', cursive
+    font-size: 32px
+  a
+    cursor: pointer
+    text-decoration: none
+    color: black
+    border: 2px solid black
+    padding: 12px
+    background: pink
+    transition: background 150ms ease-in
+    font-weight: bold
+    &:hover
+      background: red
+    &:focus
+      animation: cta 350ms ease
+
+  .cta-curve 
+    position: absolute
+    height: 250px
+    width: 100%
+    bottom: 0
+    text-align: center
+    &::before 
+      content: ''
+      display: block
+      position: absolute
+      border-radius: 100% 80% 
+      width: 60%
+      height: 100%
+      transform: translate(80%, 45%)
+      background-color: $lb
+      z-index: 1
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      border-radius: 100% 50%
+      width: 60%
+      height: 100%
+      padding-bottom: 100px
+      background-color: $lb
+      transform: translate(-20%, 40%) scale(1.2)
+      z-index: 4
+
+.cta
+  background: $lb
+  position: relative
+  top: 50px
+  width: 100%
+  z-index: 2
+  padding-bottom: 100px
+
+  .cta-container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    position: absolute
+    bottom: 200px
+
+  h1
+    position: absolute
+    bottom: 100px
+    white-space: nowrap
+    font-family: 'Mogra', cursive
+    font-size: 32px
+  a
+    cursor: pointer
+    text-decoration: none
+    color: black
+    border: 2px solid black
+    padding: 12px
+    background: pink
+    transition: background 150ms ease-in
+    font-weight: bold
+    &:hover
+      background: red
+    &:focus
+      animation: cta 350ms ease
+
+  .cta-curve 
+    position: absolute
+    height: 250px
+    width: 100%
+    bottom: 0
+    text-align: center
+    &::before 
+      content: ''
+      display: block
+      position: absolute
+      border-radius: 100% 80% 
+      width: 60%
+      height: 100%
+      transform: translate(80%, 45%)
+      background-color: $lb
+      z-index: 5
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      border-radius: 100% 50%
+      width: 60%
+      height: 100%
+      padding-bottom: 100px
+      background-color: $lb
+      transform: translate(-20%, 40%) scale(1.2)
+      z-index: 5
+
+footer
+  position: relative
+  z-index: 1
+  display: flex
+  flex-direction: row
+
+.footer-container
+  position: absolute
+  top: 100px
+  right: 0
+  width: 100%
+  height: 300px
+  text-align: right
+  background: #444
+  color: white
+  box-shadow: black -6px -11px 5px 4px inset
+
+  .footer-content
+    position: absolute
+    text-align: center
+    bottom: 150px
+    right: 700px
+
+    .footer-links
+      position: relative
+      left: 100px
+      top: 30px
+      word-spacing: 20px
+      a
+        font-size: 30px
+        color: white
+        text-decoration: none
