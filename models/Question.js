@@ -6,7 +6,7 @@ const questionSchema = new Schema({
     
     difficulty: { type: String },
 
-    question: { type: String },
+    question: { type: String, unique: true },
 
     choices: { type: [String] },
 
