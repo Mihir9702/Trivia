@@ -7,6 +7,7 @@
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .page {
@@ -25,6 +26,11 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.left h1 {
+  position: absolute;
+  top: 100px;
+  left: 150px;
+}
 .left h5 {
   font-size: 12px;
   position: absolute;
@@ -35,7 +41,7 @@
 }
 .left h5 a {
   text-decoration: none;
-  color: #006bff;
+  color: #2892d7;
   margin: 10px;
   cursor: pointer;
   transition: color 100ms ease-in;
@@ -44,7 +50,14 @@
   color: #8aa7b5;
 }
 
-form {
+.right h4 {
+  position: absolute;
+  right: 365px;
+  top: 250px;
+  z-index: 31;
+  color: white;
+}
+.right form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,8 +69,7 @@ form {
   left: 400px;
   border-radius: 10px;
 }
-
-input {
+.right input {
   margin: 16px;
   background: transparent;
   border: none;
@@ -65,38 +77,50 @@ input {
   color: #c2c2c5;
   font-size: 18px;
 }
-input:focus {
+.right input:focus {
   outline: none;
 }
-
-#user {
+.right #user {
   position: absolute;
   width: 200px;
   margin-bottom: 100px;
 }
-
-#pass {
+.right #pass {
   position: absolute;
   margin-top: 200px;
   width: 200px;
 }
-
-button {
+.right button {
   position: absolute;
   bottom: 50px;
-  font-family: "Quando", serif;
+  font-size: 24px;
+  font-family: "monospace", cursive;
   cursor: pointer;
   border: none;
-  padding: 8px 80px;
+  padding: 8px 40px;
   transform: scale(0.7);
   border-radius: 3px;
-  color: #474a59;
-  background: #efefef;
+  color: white;
+  background: #173753;
   z-index: 22;
   transition: background 200ms ease;
 }
-button:hover {
-  background: #d6d6d6;
+.right button:hover {
+  background: #081419;
+}
+
+.delete-account-container a {
+  cursor: pointer;
+  color: #ff1a1a;
+  text-decoration: none;
+  padding: 12px;
+  border: 1px solid #ff1a1a;
+  transition: color 200ms ease-in;
+  transition: background 200ms ease-in;
+}
+.delete-account-container a:hover {
+  color: white;
+  background: #ff1a1a;
 }
 
 /*# sourceMappingURL=login.css.map */

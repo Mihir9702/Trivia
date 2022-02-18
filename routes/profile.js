@@ -8,11 +8,10 @@ const { genSaltSync, hashSync } = require('bcryptjs');
 
 router.get('/', loggedIn, (req, res) => {
     res.redirect(`/profile/${req.user._id}`)
-})
+});
 
 router.get('/:id', loggedIn, async (req, res) => {
     const user = await User.findById(req.user._id)
-
     res.render('private/profile', user);
 });
 
@@ -42,7 +41,7 @@ router.post('/:id/edit', loggedIn, async (req, res) => {
             res.redirect(`/profile/${user._id}`)
         }
     } catch (err) {
-        console.log(`Update Error: ${err}`)
+        res.status(500).send(err)
     }
 });
 
@@ -54,14 +53,13 @@ router.get('/:id/delete', loggedIn, async (req, res) => {
         req.app.locals.globalUser = null;
         res.render('private/delete');
     } catch (err) {
-        console.log(`Redirecting Err: ${err}`);
+        res.status(500).send(err)
     }
 
 });
 
 router.get('/:id/trivias', loggedIn, async (req, res) => {
     const user = await User.findById(req.params.id).populate();
-
     res.render('private/user-trivias', { user });
 });
 

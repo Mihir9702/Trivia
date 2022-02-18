@@ -1,20 +1,23 @@
-<h1>@{{handlename}}</h1>
+<link rel="stylesheet" href="/stylesheets/profile.css">
 
-<a href="/profile/{{_id}}/edit"><i class="fa-solid fa-gear"></i></a> <br>
+<body class="profile-body">
+    
+<div class="profile-container">
+    <div class="settings-container">
+        <a href="/profile/{{_id}}/edit"><i class="fa-solid fa-gear"></i></a> <br>
+    </div>
+    
+    <div class="center-container">
+        <h1>@{{handlename}}</h1>
+    </div>
 
-<a href="/trivia">Take Trivias</a> <br>
 
-<a href="/profile/{{_id}}/trivias">See your Trivias</a> <br>
+    <div class="logout-container">
+        <a href="/">Home</a>
+        <a href="/profile/{{_id}}/trivias">See your Trivias</a> <br>
+        <a href="/trivia">Take Trivias</a> <br>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
 
-
-<a href="/logout">Logout</a>
-
-<style>
-    .fa-gear {
-        color: black;
-    }
-    .fa-gear:hover {
-        color: gray;
-    }
-
-</style>
+</body>

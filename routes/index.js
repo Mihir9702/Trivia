@@ -9,9 +9,10 @@ const User = require('../models/User');
 // Middleware
 const signupError = require('../middleware/SignupError');
 const loginError = require('../middleware/LoginError');
+const loggedIn = require('../middleware/LoggedIn');
 
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', req.app.locals.globalUser);
 })
 
 
@@ -57,7 +58,7 @@ router.post('/login', loginError, async (req, res) => {
 router.get('/logout', (req, res) => {
   req.app.locals.globalUser = null;
   req.session.destroy();
-  res.redirect('/');
+  res.redirect('/')
 });
 
 

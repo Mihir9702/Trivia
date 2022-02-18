@@ -1,21 +1,29 @@
-<form action="/signup" method="POST">
+<link rel="stylesheet" href="stylesheets/login.css">
 
-   <label> Username
-      <input type="text" name="username" required>
-   </label>
+<body class="login-body">
 
-   <label> Password
-      <input type="password" name="password" required>
-   </label>
+<div class="page">
+   <div class="left">
+      <h1>Signup</h1>
+      <h5>Already have an account?<a href="/login">Login</a></h5>
+   </div>
 
-   <label> @
-      <input type="text" name="handlename">
-   </label>
+   <div class="right">
+      {{#if errorMessage}}
+        <h4>{{errorMessage}}</h4>
+      {{/if}}
+      <form action="/signup" method="post">
+         <input type="text" name="username" placeholder="Username" required>
 
-   <button type="submit">Submit</button>
+         <input type="password" name="password" placeholder="Password" required>
 
-</form>
+         <label> 
+            <input type="text" name="handlename" placeholder="Name">
+         </label>
 
-{{#if errorMessage}}
-   <p>{{errorMessage}}</p>
-{{/if}}
+         <button type="submit">Signup</button>
+      </form>
+   </div>
+</div>
+
+</body>

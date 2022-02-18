@@ -15,7 +15,7 @@ router.get('/difficulty/easy?', async (req, res) => {
   try {
     res.render('content/allTrivia', { trivias });
   } catch (err) {
-    console.log(`Easy err: ${err}`);
+    res.status(404).send(err)
   }
 
 })
@@ -27,7 +27,7 @@ router.get('/difficulty/medium?', async (req, res) => {
   try {
     res.render('content/allTrivia', { trivias });
   } catch (err) {
-    console.log(`Medium err: ${err}`);
+    res.status(404).send(err)
   }
 
 })
@@ -39,7 +39,7 @@ router.get('/difficulty/hard?', async (req, res) => {
   try {
     res.render('content/allTrivia', { trivias });
   } catch (err) {
-    console.log(`Hard err: ${err}`);
+    res.status(404).send(err)
   }
 })
 
@@ -49,7 +49,7 @@ router.get('/difficulty/:difficulty/:id', async (req, res) => {
   try {
     res.render('content/foundTrivia', foundTrivia)
   } catch (err) {
-    console.log(`Found Trivia err: ${err}`)
+    res.status(501).send(err)
   }
 })
 
@@ -73,10 +73,11 @@ router.post('/submit/:id', async (req, res) => {
   // If User is logged in we can save the test and score in the database
   if (req.session.user) {
     const user = req.session.user;
-    return await User.findByIdAndUpdate(user._id, { $push: { tests: { trivia: getTrivia, score: `${percentage}%` } } });
+    await User.findByIdAndUpdate(user._id, { $push: { tests: { trivia: getTrivia, score: `${percentage}%` } } });
+    return res.render('content/score', { percentage })
   }
 
-  res.render('content/score', { score })
+  res.render('content/score', { percentage })
 
 });
 

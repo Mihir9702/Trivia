@@ -12,7 +12,8 @@ npm-debug.log
 style.css.map
 trivia.css.map
 login.css.map
+profile.css.map
 home.css.map
 
 # Notes
-models/testTrivia.js
+testTrivia.js

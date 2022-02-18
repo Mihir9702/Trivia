@@ -1,16 +1,17 @@
-{{#each user.tests}}
-    <ul>
-        <h2>{{trivia.name}}</h2>
-        <li>{{trivia.difficulty}}</li>
-        <p>{{score}}</p>
-    </ul>
-{{/each}}
-
-<style>
-    li {
-        font-size: 32px;
-    }
-    p {
-        font-size: 28px;
-    }
-</style>
+<link rel="stylesheet" href="/stylesheets/profile.css">
+<body class="user-score-container">
+    <div class="user-back-container">
+        <a href="/profile/{{user._id}}"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+    </div>
+    <div class="list-container">
+    {{#each user.tests}}
+            <ul>
+                <div class="list-content-container">
+                    <h2>{{trivia.name}}</h2>
+                    <li>{{trivia.difficulty}}</li>
+                    <p>{{score}}</p>
+                </div>
+            </ul>
+    {{/each}}
+    </div>
+</body>

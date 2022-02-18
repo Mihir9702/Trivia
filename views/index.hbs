@@ -9,7 +9,11 @@
                 <ul>
                     <a href="/"><i class="fa-solid fa-house"></i></a>
                     <a href="/trivia"><i class="fa-solid fa-play"></i></a>
-                    <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                    {{#if globalUser}}
+                        <a href="/profile/{{_id}}"><i class="fa-solid fa-user"></i></a>
+                    {{else}}
+                        <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                    {{/if}}
                 </ul>
             </nav>
         </div> 
@@ -18,7 +22,7 @@
     <section class="cta-trivia">
         <div class="cta-curve"></div>
             <div class="cta-container">
-                <h1>Test your Knowledge!</h1>
+                <h1>Test your Knowledge</h1>
                 <a href="/trivia">VIEW TRIVIAS</a>
             </div>
     </section>
