@@ -73,11 +73,10 @@ router.post('/submit/:id', async (req, res) => {
   // If User is logged in we can save the test and score in the database
   if (req.session.user) {
     const user = req.session.user;
-    const foundUser = await User.findByIdAndUpdate(user._id, { $push: { tests: { trivia: getTrivia, score: `${percentage}%` } } });
-    console.log(foundUser);
-    res.redirect('/');
-  } else { res.redirect('/') }
+    return await User.findByIdAndUpdate(user._id, { $push: { tests: { trivia: getTrivia, score: `${percentage}%` } } });
+  }
 
+  res.render('content/score', { score })
 
 });
 

@@ -16,7 +16,7 @@ body {
 
 button {
   text-decoration: none;
-  color: black;
+  color: white;
   background: transparent;
   padding: 8px;
   border-radius: 50%;
@@ -44,21 +44,27 @@ nav {
   top: 5px;
   font-size: 30px;
   text-decoration: none;
-  color: black;
+  color: white;
   background: transparent;
 }
 
 .fa-house {
   font-size: 28px;
   text-decoration: none;
-  color: black;
+  color: white;
   background: transparent;
 }
 
 header {
   padding: 100px;
-  background: blue;
+  background: #006bff;
   position: relative;
+}
+header .title h1 {
+  color: white;
+}
+header .title img {
+  filter: brightness(0) invert(1);
 }
 header h1 {
   position: absolute;
@@ -79,7 +85,6 @@ section {
   align-items: center;
   min-height: 400px;
   padding-top: 100px;
-  background: #3c31dd;
 }
 
 .curve {
@@ -97,8 +102,9 @@ section {
   width: 60%;
   height: 100%;
   transform: translate(80%, 45%);
-  background-color: lightgreen;
+  background-color: #5e2bff;
   z-index: 1;
+  box-shadow: 19px -12px 2px rgba(0, 0, 0, 0.8);
 }
 .curve::after {
   content: "";
@@ -108,13 +114,14 @@ section {
   width: 60%;
   height: 100%;
   padding-bottom: 100px;
-  background-color: blue;
-  transform: translate(-20%, 40%) scale(1.2);
+  background-color: #006bff;
+  transform: translate(-20%, 30%) scale(1.2);
   z-index: 3;
+  box-shadow: -17px 11px 2px rgba(0, 0, 0, 0.8);
 }
 
 .cta-trivia {
-  background: lightgreen;
+  background: #5e2bff;
   position: relative;
   top: 50px;
   width: 100%;
@@ -132,6 +139,7 @@ section {
 .cta-trivia h1 {
   position: absolute;
   bottom: 100px;
+  color: white;
   white-space: nowrap;
   font-family: "Mogra", cursive;
   font-size: 32px;
@@ -142,12 +150,13 @@ section {
   color: black;
   border: 2px solid black;
   padding: 12px;
-  background: pink;
-  transition: background 150ms ease-in;
+  background: #54c6eb;
+  transition: background 300ms ease-in;
   font-weight: bold;
 }
 .cta-trivia a:hover {
-  background: red;
+  background: #173753;
+  color: white;
 }
 .cta-trivia a:focus {
   animation: cta 350ms ease;
@@ -167,8 +176,9 @@ section {
   width: 60%;
   height: 100%;
   transform: translate(80%, 45%);
-  background-color: #99ffff;
+  background: #83bcff;
   z-index: 1;
+  box-shadow: 20px -13px 2px rgba(0, 0, 0, 0.8);
 }
 .cta-trivia .cta-curve::after {
   content: "";
@@ -178,17 +188,17 @@ section {
   width: 60%;
   height: 100%;
   padding-bottom: 100px;
-  background-color: #99ffff;
-  transform: translate(-20%, 40%) scale(1.2);
-  z-index: 4;
+  background: #5e2bff;
+  transform: translate(-20%, 30%) scale(1.2);
+  z-index: 22;
+  box-shadow: -3px 14px 2px rgba(0, 0, 0, 0.8);
 }
 
 .cta {
-  background: #99ffff;
+  background: #83bcff;
   position: relative;
   top: 50px;
   width: 100%;
-  z-index: 2;
   padding-bottom: 100px;
 }
 .cta .cta-container {
@@ -203,6 +213,7 @@ section {
   position: absolute;
   bottom: 100px;
   white-space: nowrap;
+  color: black;
   font-family: "Mogra", cursive;
   font-size: 32px;
 }
@@ -212,12 +223,13 @@ section {
   color: black;
   border: 2px solid black;
   padding: 12px;
-  background: pink;
-  transition: background 150ms ease-in;
+  background: #54c6eb;
+  transition: background 350ms ease-in;
   font-weight: bold;
 }
 .cta a:hover {
-  background: red;
+  background: #173753;
+  color: white;
 }
 .cta a:focus {
   animation: cta 350ms ease;
@@ -237,8 +249,9 @@ section {
   width: 60%;
   height: 100%;
   transform: translate(80%, 45%);
-  background-color: #99ffff;
+  background-color: #83bcff;
   z-index: 5;
+  box-shadow: 10px 20px 2px rgba(0, 0, 0, 0.8);
 }
 .cta .cta-curve::after {
   content: "";
@@ -248,9 +261,10 @@ section {
   width: 60%;
   height: 100%;
   padding-bottom: 100px;
-  background-color: #99ffff;
+  background-color: #83bcff;
   transform: translate(-20%, 40%) scale(1.2);
   z-index: 5;
+  box-shadow: -14px 19px 2px rgba(0, 0, 0, 0.8);
 }
 
 footer {
@@ -268,7 +282,6 @@ footer {
   height: 300px;
   text-align: right;
   background: #444;
-  color: white;
   box-shadow: black -6px -11px 5px 4px inset;
 }
 .footer-container .footer-content {
@@ -287,6 +300,10 @@ footer {
   font-size: 30px;
   color: white;
   text-decoration: none;
+  transition: color 150ms ease;
+}
+.footer-container .footer-content .footer-links a:hover {
+  color: #6daedb;
 }
 
 /*# sourceMappingURL=home.css.map */

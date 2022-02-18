@@ -1,8 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-// Generates a random user number for default users with no handlename provided
-const randomUserNumber = Math.random().toString().split("").splice(2, 7).join("")
-
 const userSchema = new Schema({
 
   username: {
@@ -18,6 +15,7 @@ const userSchema = new Schema({
     trim: true
   },
 
+  // Search feature not implemented
   handlename: {
     type: String,
     required: true,

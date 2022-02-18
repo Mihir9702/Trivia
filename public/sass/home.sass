@@ -1,4 +1,4 @@
-$lb: hsl(180%, 180%, 80%)
+@import 'vars'
 
 @keyframes cta
   0%
@@ -8,7 +8,7 @@ $lb: hsl(180%, 180%, 80%)
 
 @mixin links()
   text-decoration: none
-  color: black
+  color: white
   background: transparent
 
 body 
@@ -52,9 +52,14 @@ nav
   
 header
   padding: 100px
-  background: blue 
+  background: $blueRich 
   position: relative
 
+  .title
+    h1
+      color: white
+    img
+      filter: brightness(0) invert(1)
   h1
     position: absolute
     font-family: 'Mogra', cursive
@@ -73,7 +78,6 @@ section
   align-items: center
   min-height: 400px
   padding-top: 100px
-  background: #3c31dd
 
 .curve 
   position: absolute
@@ -89,8 +93,9 @@ section
     width: 60%
     height: 100%
     transform: translate(80%, 45%)
-    background-color: lightgreen
+    background-color: $purple
     z-index: 1
+    box-shadow: 19px -12px 2px rgba(0,0,0,0.8)
   &::after
     content: ''
     display: block
@@ -99,12 +104,13 @@ section
     width: 60%
     height: 100%
     padding-bottom: 100px
-    background-color: blue
-    transform: translate(-20%, 40%) scale(1.2)
+    background-color: $blueRich
+    transform: translate(-20%, 30%) scale(1.2)
     z-index: 3
+    box-shadow: -17px 11px 2px rgba(0,0,0,0.8)
 
 .cta-trivia
-  background: lightgreen
+  background: $purple
   position: relative
   top: 50px
   width: 100%
@@ -122,6 +128,7 @@ section
   h1
     position: absolute
     bottom: 100px
+    color: white
     white-space: nowrap
     font-family: 'Mogra', cursive
     font-size: 32px
@@ -131,11 +138,12 @@ section
     color: black
     border: 2px solid black
     padding: 12px
-    background: pink
-    transition: background 150ms ease-in
+    background: $skyb
+    transition: background 300ms ease-in
     font-weight: bold
     &:hover
-      background: red
+      background: $pb
+      color: white
     &:focus
       animation: cta 350ms ease
 
@@ -153,8 +161,9 @@ section
       width: 60%
       height: 100%
       transform: translate(80%, 45%)
-      background-color: $lb
+      background: $blueBaby
       z-index: 1
+      box-shadow: 20px -13px 2px rgba(0,0,0,0.8)
     &::after
       content: ''
       display: block
@@ -163,16 +172,16 @@ section
       width: 60%
       height: 100%
       padding-bottom: 100px
-      background-color: $lb
-      transform: translate(-20%, 40%) scale(1.2)
-      z-index: 4
+      background: $purple
+      transform: translate(-20%, 30%) scale(1.2)
+      z-index: 22
+      box-shadow: -3px 14px 2px rgba(0,0,0,0.8)
 
 .cta
-  background: $lb
+  background: $blueBaby
   position: relative
   top: 50px
   width: 100%
-  z-index: 2
   padding-bottom: 100px
 
   .cta-container
@@ -187,6 +196,7 @@ section
     position: absolute
     bottom: 100px
     white-space: nowrap
+    color: black
     font-family: 'Mogra', cursive
     font-size: 32px
   a
@@ -195,11 +205,12 @@ section
     color: black
     border: 2px solid black
     padding: 12px
-    background: pink
-    transition: background 150ms ease-in
+    background: $skyb
+    transition: background 350ms ease-in
     font-weight: bold
     &:hover
-      background: red
+      background: $pb
+      color: white
     &:focus
       animation: cta 350ms ease
 
@@ -217,8 +228,9 @@ section
       width: 60%
       height: 100%
       transform: translate(80%, 45%)
-      background-color: $lb
+      background-color: $blueBaby
       z-index: 5
+      box-shadow: 10px 20px 2px rgba(0,0,0,0.8)
     &::after
       content: ''
       display: block
@@ -227,9 +239,10 @@ section
       width: 60%
       height: 100%
       padding-bottom: 100px
-      background-color: $lb
+      background-color: $blueBaby
       transform: translate(-20%, 40%) scale(1.2)
       z-index: 5
+      box-shadow: -14px 19px 2px rgba(0,0,0,0.8)
 
 footer
   position: relative
@@ -245,7 +258,6 @@ footer
   height: 300px
   text-align: right
   background: #444
-  color: white
   box-shadow: black -6px -11px 5px 4px inset
 
   .footer-content
@@ -263,3 +275,6 @@ footer
         font-size: 30px
         color: white
         text-decoration: none
+        transition: color 150ms ease
+        &:hover
+          color: $ice
