@@ -52,7 +52,6 @@
 
 .trivia-body {
   background: #2892d7;
-  overflow-x: hidden;
 }
 
 .trivia-container {
@@ -101,54 +100,6 @@
   position: relative;
   height: 100%;
   width: 100%;
-}
-
-.left-trivia-sidebar {
-  background: #2892d7;
-  position: absolute;
-  width: 15%;
-  min-height: 100%;
-  height: 100%;
-  overflow: hidden;
-  padding-top: 3515px;
-  left: 0;
-  top: 0;
-}
-
-.left-trivia-sidebar2 {
-  background: #2892d7;
-  position: absolute;
-  width: 15%;
-  min-height: 100%;
-  height: 100%;
-  overflow: hidden;
-  padding-top: 3515px;
-  left: 0;
-  top: 100%;
-}
-
-.right-trivia-sidebar {
-  background: #2892d7;
-  position: absolute;
-  width: 15%;
-  min-height: 100%;
-  height: 100%;
-  overflow: hidden;
-  padding-top: 3515px;
-  right: 0;
-  top: 0;
-}
-
-.right-trivia-sidebar2 {
-  background: #2892d7;
-  position: absolute;
-  width: 15%;
-  min-height: 100%;
-  height: 100%;
-  overflow: hidden;
-  padding-top: 3515px;
-  right: 0;
-  top: 100%;
 }
 
 .test-container {
@@ -205,6 +156,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   position: relative;
+  gap: 20px;
 }
 .test-container .choices-container label {
   font-size: 1.35rem;
@@ -267,6 +219,15 @@
   text-decoration: none;
   font-size: 24px;
   font-family: "Mogra", cursive;
+}
+
+@media (max-width: 976px) {
+  .difficulty-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=trivia.css.map */

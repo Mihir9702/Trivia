@@ -1,3 +1,8 @@
+html {
+  overflow-wrap: hidden;
+  overflow: hidden;
+}
+
 .login-body {
   display: flex;
   justify-content: center;
@@ -15,13 +20,19 @@
   position: absolute;
   background: #e2e2e5;
   border-radius: 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
 .left {
   padding: 180px 200px;
-  position: absolute;
+  position: relative;
   background: white;
-  top: 250px;
+  top: -50px;
+  left: 120px;
   border-radius: 12px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -66,7 +77,7 @@
   color: #8aa7b5;
   padding: 200px 150px 250px 150px;
   position: relative;
-  left: 400px;
+  left: 50px;
   border-radius: 10px;
 }
 .right input {
@@ -121,6 +132,12 @@
 .delete-account-container a:hover {
   color: white;
   background: #ff1a1a;
+}
+
+@media (max-width: 1200px) {
+  html {
+    background: #e2e2e5;
+  }
 }
 
 /*# sourceMappingURL=login.css.map */

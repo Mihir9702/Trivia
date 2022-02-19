@@ -6,18 +6,26 @@
   100%
     padding: 20px
 
-@mixin links()
-  text-decoration: none
-  color: white
-  background: transparent
-
-body 
+@mixin body()
   min-height: 100vh
+  height: 100vh
   width: 100%
   margin: 0
   padding: 0
   overflow-x: hidden
 
+@mixin links()
+  text-decoration: none
+  color: white
+  background: transparent
+
+html
+  overflow-x: hidden
+  min-height: 100%
+  height: 100vh
+
+body
+  @include body()
 
 button 
   @include links()
@@ -79,7 +87,7 @@ section
   display: flex
   flex-direction: column
   align-items: center
-  min-height: 400px
+  height: 50vh
   padding-top: 100px
 
 .curve 
@@ -254,11 +262,12 @@ footer
   flex-direction: row
 
 .footer-container
-  position: absolute
+  position: relative
   top: 100px
   right: 0
   width: 100%
-  height: 300px
+  height: 350px
+  height: 100vh
   text-align: right
   background: #444
   box-shadow: black -6px -11px 5px 4px inset
@@ -266,18 +275,90 @@ footer
   .footer-content
     position: absolute
     text-align: center
-    bottom: 150px
-    right: 700px
+    z-index: 33
+    bottom: 0
+    right: 0
+    transform: translate(-100%)
 
     .footer-links
       position: relative
-      left: 100px
-      top: 30px
-      word-spacing: 20px
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      h4
+        position: relative
+        background: transparent
+        white-space: nowrap
+        font-size: 30px
+        color: white
+        font-family: 'Mogra', cursive
+        bottom: 40px
       a
+        margin-left: 30px
         font-size: 30px
         color: white
         text-decoration: none
         transition: color 150ms ease
         &:hover
           color: $ice
+
+// Big
+@media (min-width: 480px)
+  header
+    nav
+      display: flex
+      flex-direction: row
+      justify-content: flex-end
+      position: relative
+    .title
+      width: 100vw
+      overflow: hidden
+      h1
+        z-index: 33
+        position: absolute
+        left: 100px
+      img
+        z-index: 34
+    .curve
+      &::after
+        left: -50px
+      &::before
+        left: -50px
+
+
+@media (max-width: 390px)
+  .fa-solid
+    right: 50px
+
+@media (max-width: 480px)
+  header
+    width: 100%
+    nav
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      position: relative
+
+    .title
+      width: 100vw
+      h1
+        position: absolute
+        left: 50px
+        z-index: 33
+      img
+        z-index: 33
+        left: -100px
+    .curve
+      left: -100px
+      &::before
+        left: -100px
+
+  footer
+    .footer-links
+      right: -125px
+      top: -100px
+      h4
+        top: 0
+        left: 100px
+
+  
