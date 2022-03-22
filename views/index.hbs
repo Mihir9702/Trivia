@@ -1,54 +1,60 @@
 <body class="index-body">
 
-<div class="index-content-container">
+  <div class="index-content-container">
     <header>
-        <div class="curve"></div>
-        <div class="title">
-            <h1>Mono Trivia</h1>
-            <img src="images/logo.png" alt="">
-        </div>
-        <div class="nav-links">
-            <nav>
-                <ul>
-                    <a href="/"><i class="fa-solid fa-house"></i></a>
-                    <a href="/trivia"><i class="fa-solid fa-play"></i></a>
-                    {{#if globalUser}}
-                        <a href="/profile/{{_id}}"><i class="fa-solid fa-user"></i></a>
-                    {{else}}
-                        <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
-                    {{/if}}
-                </ul>
-            </nav>
-        </div> 
+      <div class="curve"></div>
+      <div class="title">
+        <h1>MonoTrivia</h1>
+        <img src="images/logo.png" alt="" />
+      </div>
+      <div class="nav-links">
+        <nav>
+          <ul>
+            <a href="/"><i class="fa-solid fa-house"></i></a>
+            <a href="/trivia"><i class="fa-solid fa-play"></i></a>
+            {{#if globalUser}}
+              <a href="/profile/{{_id}}"><i class="fa-solid fa-user"></i></a>
+            {{else}}
+              <a href="/login"><i
+                  class="fa-solid fa-arrow-right-to-bracket"
+                ></i></a>
+            {{/if}}
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <section class="cta-trivia">
-        <div class="cta-curve"></div>
-            <div class="cta-container">
-                <h1>Test your Knowledge</h1>
-                <a href="/trivia">VIEW TRIVIAS</a>
-            </div>
+      <div class="cta-curve"></div>
+      <div class="cta-container">
+        <h1>Test your Knowledge</h1>
+        <a href="/trivia">VIEW TRIVIAS</a>
+      </div>
     </section>
 
     <section class="cta">
-        <div class="cta-curve"></div>
-            <div class="cta-container">
-                <h1>Save your scores?</h1>
-                <a href="/signup">SIGN UP</a>
-            </div>
+      <div class="cta-curve"></div>
+      <div class="cta-container">
+        <h1>Save your scores?</h1>
+        <a href="/signup">SIGN UP</a>
+      </div>
     </section>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <h4>Mihir |</h4>
-                    <a href="https://www.linkedin.com/in/mihir-k-patel/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/Mihir9702/Trivia"><i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-links">
+            <h4>Mihir |</h4>
+            <a href="https://www.linkedin.com/in/mihir-k-patel/"><i
+                class="fa-brands fa-linkedin"
+              ></i></a>
+            <a href="https://github.com/Mihir9702/Trivia"><i
+                class="fa-brands fa-github"
+              ></i></a>
+          </div>
         </div>
+      </div>
     </footer>
 
-</div>
+  </div>
 </body>

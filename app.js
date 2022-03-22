@@ -15,7 +15,7 @@ const app = express();
 // This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
-const User = require('./models/User');
+const User = require("./models/User");
 // Keep user logged in
 app.use((req, res, next) => {
   if (req.session.user) {
@@ -29,8 +29,9 @@ app.use((req, res, next) => {
 });
 
 // Title of Website/Project
-const projectName = "chill";
-const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
+const projectName = "MonoTrivia";
+const capitalized = (string) =>
+  string[0].toUpperCase() + string.slice(1).toLowerCase();
 app.locals.title = `${capitalized(projectName)}`;
 
 // 👇 Start handling routes here

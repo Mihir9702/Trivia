@@ -358,48 +358,5 @@ footer {
     left: -50px;
   }
 }
-@media (max-width: 390px) {
-  .fa-solid {
-    right: 50px;
-  }
-}
-@media (max-width: 480px) {
-  header {
-    width: 100%;
-  }
-  header nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-  }
-  header .title {
-    width: 100vw;
-  }
-  header .title h1 {
-    position: absolute;
-    left: 50px;
-    z-index: 33;
-  }
-  header .title img {
-    z-index: 33;
-    left: -100px;
-  }
-  header .curve {
-    left: -100px;
-  }
-  header .curve::before {
-    left: -100px;
-  }
-
-  footer .footer-links {
-    right: -125px;
-    top: -100px;
-  }
-  footer .footer-links h4 {
-    top: 0;
-    left: 100px;
-  }
-}
 
 /*# sourceMappingURL=home.css.map */
